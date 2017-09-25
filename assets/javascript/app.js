@@ -5,19 +5,20 @@ $(document).ready(function() {
         "hedgehog", "pygmy goat", "chicken", "capybara", "teacup pig", "serval", "salamander", "frog"
     ];
 
+    // function to show animals to DOM
     function displayAnimals() {
 
         $("#animals").empty();
-        console.log(this);
+    // Giphy API
         var animal = $(this).attr("data-animal");
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=UM935ggzdYI5h9BsnSpl4Utwp0UV5kkm&q=" + animal + "&limit=25&offset=0&rating=G&lang=en";
 
-
+    //Ajax to access API
         $.ajax({
             url: queryURL,
             method: "GET"
         }).done(function(response) {
-
+    //Make animal div and set all class and attributes
             var gifArray = response.data;
 
             for (var i = 0; i < 10; i++) {
@@ -26,6 +27,7 @@ $(document).ready(function() {
                 var rating = gifArray[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 animalDiv.append(p);
+            //set gif still and animate
                 var gifAnimate = gifArray[i].images.fixed_height_downsampled.url;
                 var gifStill = gifArray[i].images.fixed_height_still.url;
                 var image = $("<img>").attr("src", gifStill)
@@ -36,7 +38,7 @@ $(document).ready(function() {
                 animalDiv.append(image);
                 $("#animals").prepend(animalDiv);
             }
-
+            //use click to change attribute
             $(".gif").on("click", function() {
 
                 var state = $(this).attr("data-state");
@@ -55,7 +57,7 @@ $(document).ready(function() {
 
 
     }
-
+    //render the animal buttons
     function renderButtons() {
 
         $("#animalButtons").empty();
@@ -72,7 +74,7 @@ $(document).ready(function() {
     }
 
 
-
+    //add animal that the user types
     $("#addAnimal").on("click", function(event) {
         event.preventDefault();
 
