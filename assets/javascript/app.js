@@ -18,8 +18,6 @@ $(document).ready(function() {
             method: "GET"
         }).done(function(response) {
 
-            console.log(response);
-
             var gifArray = response.data;
 
             for (var i = 0; i < 10; i++) {
@@ -28,14 +26,33 @@ $(document).ready(function() {
                 var rating = gifArray[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 animalDiv.append(p);
-                var gifURL = gifArray[i].images.fixed_height_downsampled.url;
-                var image = $("<img>").attr("src", gifURL);
+                var gifAnimate = gifArray[i].images.fixed_height_downsampled.url;
+                var gifStill = gifArray[i].images.fixed_height_still.url;
+                var image = $("<img>").attr("src", gifStill)
+                    .attr("data-state", "still")
+                    .attr("data-animate", gifAnimate)
+                    .attr("data-still", gifStill)
+                    .addClass("gif");
                 animalDiv.append(image);
                 $("#animals").prepend(animalDiv);
             }
 
+            $(".gif").on("click", function() {
+
+                var state = $(this).attr("data-state");
+
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                } else {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                }
+
+            });
 
         });
+
 
     }
 
@@ -51,18 +68,20 @@ $(document).ready(function() {
             $("#animalButtons").append(animalBtn);
 
         }
+
     }
+
+
 
     $("#addAnimal").on("click", function(event) {
         event.preventDefault();
 
         var animal = $("#animal-input").val().trim();
 
-
         topics.push(animal);
 
-
         renderButtons();
+        
     });
 
     $(document).on("click", ".animal-button", displayAnimals);

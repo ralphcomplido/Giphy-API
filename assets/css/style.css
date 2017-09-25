@@ -1,5 +1,5 @@
 body, #animalButtons {
-	width: 1440px;
+	width: 1480px;
 }
 
 .animal {
@@ -9,6 +9,8 @@ body, #animalButtons {
 
 #animals {
 	width: 1280px;
+	clear: left;
+
 
 }
 
@@ -16,6 +18,7 @@ body, #animalButtons {
 	margin-top: 40px;
 	float: right;
 	width: 180px;
+	position: relative;
 }
 
 .animal-button {
@@ -24,3 +27,16 @@ body, #animalButtons {
 	float: left;
 
 }
+
+.animal-button-color, #addAnimal {
+	background-color: #008080;
+	color: white;
+	padding: 4px 12px 4px 12px;
+	border-radius: 6px;
+}
+
+input {
+	margin-top: 10px;
+	border-radius: 6px;
+}
+
