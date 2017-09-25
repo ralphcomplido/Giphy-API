@@ -34,18 +34,18 @@ It is best to prefix your Homework Names so that you may easily filter them out 
 ## Code Explaination
 
 
-### - The html only has 3 parts:
+### The html only has 3 parts:
 
  - Buttons
  - Add Buttons
  - Show Results
 
-### - The css is only used to put margins, add colors to buttons, and arrange the position of the sections.
+### The css is only used to put margins, add colors to buttons, and arrange the position of the sections.
 
-### - The javascript does the most work for this code. I used Jquery and AJAX to access api then manipulate the DOM.
+### The javascript does the most work for this code. I used Jquery and AJAX to access api then manipulate the DOM.
 
 
-### - Here are the brief explanations of the codes to achieve the goal:
+### Here are the brief explanations of the codes to achieve the goal:
 - To access API, we use this code:
 
 ```
