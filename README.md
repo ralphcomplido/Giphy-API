@@ -34,19 +34,19 @@ It is best to prefix your Homework Names so that you may easily filter them out 
 ## Code Explaination
 
 
-### The html only has 3 parts,
+### - The html only has 3 parts:
 
-- Buttons
-- Add Buttons
-- Show Results
+ - Buttons
+ - Add Buttons
+ - Show Results
 
-###The css is only used to put margins, add colors to buttons, and arrange the position of the sections.
+### - The css is only used to put margins, add colors to buttons, and arrange the position of the sections.
 
-### The javascript does the most work for this code. I used Jquery and AJAX to access api then manipulate the DOM.
+### - The javascript does the most work for this code. I used Jquery and AJAX to access api then manipulate the DOM.
 
 
-### Here are the brief explanations of the codes to achieve the goal:
- -To access API, we use this code:
+### - Here are the brief explanations of the codes to achieve the goal:
+- To access API, we use this code:
 
 ```
 var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=UM935ggzdYI5h9BsnSpl4Utwp0UV5kkm&q=" + animal + "&limit=25&offset=0&rating=G&lang=en";
@@ -55,7 +55,7 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=UM935ggzdYI5h9BsnSp
             method: "GET"
         }).done(function(response) { console.log(response) });
 ```
-
+s
 - To show the Giphy to the DOM, we use this code inside AJAX:
 ```
 var gifArray = response.data;
