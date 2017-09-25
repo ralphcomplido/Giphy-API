@@ -55,7 +55,7 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=UM935ggzdYI5h9BsnSp
             method: "GET"
         }).done(function(response) { console.log(response) });
 ```
-s
+
 - To show the Giphy to the DOM, we use this code inside AJAX:
 ```
 var gifArray = response.data;
