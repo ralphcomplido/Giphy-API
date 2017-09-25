@@ -27,10 +27,12 @@ It is best to prefix your Homework Names so that you may easily filter them out 
 
 ## Code Explaination
 
--The html only has 3 parts,
---Buttons
---Add Buttons
---Show Results
+
+- The html only has 3 parts,
+
+-- Buttons
+-- Add Buttons
+-- Show Results
 
 - The css is only used to put margins, add colors to buttons, and arrange the position of the sections.
 
@@ -38,22 +40,17 @@ It is best to prefix your Homework Names so that you may easily filter them out 
 
 
 - Here are the brief explanations of the codes to achieve the goal:
-
---
+	-
 To access API, we use this code:
-```   var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=UM935ggzdYI5h9BsnSpl4Utwp0UV5kkm&q=" + animal + "&limit=25&offset=0&rating=G&lang=en";
-
-
+``` var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=UM935ggzdYI5h9BsnSpl4Utwp0UV5kkm&q=" + animal + "&limit=25&offset=0&rating=G&lang=en";
         $.ajax({
             url: queryURL,
             method: "GET"
         }).done(function(response) { console.log(response) }); ```
 
--- To show the Giphy to the DOM, we use this code inside AJAX:
+	- To show the Giphy to the DOM, we use this code inside AJAX:
 ```var gifArray = response.data;
-
             for (var i = 0; i < 10; i++) {
-
                 var animalDiv = $("<div class='animal'>");
                 var rating = gifArray[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
@@ -69,11 +66,9 @@ To access API, we use this code:
                 animalDiv.append(image);
                 $("#animals").prepend(animalDiv);```
 
---To pause or play the GIF animation, we use this code inside AJAX:
+	- To pause or play the GIF animation, we use this code inside AJAX:
 ```$(".gif").on("click", function() {
-
                 var state = $(this).attr("data-state");
-
                 if (state === "still") {
                     $(this).attr("src", $(this).attr("data-animate"));
                     $(this).attr("data-state", "animate");
@@ -82,53 +77,23 @@ To access API, we use this code:
                     $(this).attr("data-state", "still");
                 } ```
 
--- To render buttons, we use this code:
-```function renderButtons() {
-
+	- To render buttons, we use this code:
+``` function renderButtons() {
         $("#animalButtons").empty();
-
         for (var i = 0; i < topics.length; i++) {
             var animalBtn = $("<button>");
             animalBtn.addClass("animal-button-color animal-button");
             animalBtn.attr("data-animal", topics[i]);
             animalBtn.text(topics[i]);
             $("#animalButtons").append(animalBtn);
-
         }
+    } ```
 
-    }```
-
---To append the animals that the user wants to add, we use this code:
-```$("#addAnimal").on("click", function(event) {
+	- To append the animals that the user wants to add, we use this code:
+``` $("#addAnimal").on("click", function(event) {
         event.preventDefault();
 
         var animal = $("#animal-input").val().trim();
-
         topics.push(animal);
-
         renderButtons();
-
-    });```
-
-
-
-##Here is an example of what a Readme could look like:
-
-
-### AJAX Request to Giphy (Example)
-I created a function that allowed me to make an AJAX request to the Giphy API and then allowed me to pass through a callback function in order to further process the JSON object that was returned. 
-
-
-
-```
-var settings = {
-  "url": "http://api.giphy.com/v1/gifs/search?q=funny%20cat&api_key=dc6zaTOxFJmzC",
-  "method": "GET"
-  }
-}
-function getGiphyList(cb){
-	$.ajax(settings).done(function (response) {
-	  cb(response)
-	});
-}
-```
+    }); ```
