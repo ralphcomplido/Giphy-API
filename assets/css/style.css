@@ -1,0 +1,26 @@
+body, #animalButtons {
+	width: 1440px;
+}
+
+.animal {
+	float: left;
+	margin: 20px;
+}
+
+#animals {
+	width: 1280px;
+
+}
+
+#animal-form {
+	margin-top: 40px;
+	float: right;
+	width: 180px;
+}
+
+.animal-button {
+	margin-right: 6px;
+	margin-bottom: 6px;
+	float: left;
+
+}
